@@ -2,6 +2,7 @@ require('dotenv').config();
 // const bodyParser = require('body-parser');
 const express = require('express'); // Express web server framework
 const request = require('request'); // "Request" library
+const cors = require('cors');
 
 const app = express();
 const router = express.Router();
@@ -11,6 +12,8 @@ const client_secret = process.env.client_secret;
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 
 app.get('/auth', (req, res) => {
   let auth_token;
